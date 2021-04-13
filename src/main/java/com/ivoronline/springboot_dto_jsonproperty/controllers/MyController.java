@@ -1,25 +1,16 @@
 package com.ivoronline.springboot_dto_jsonproperty.controllers;
 
 import com.ivoronline.springboot_dto_jsonproperty.DTO.PersonDTO;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 public class MyController {
 
-  @ResponseBody
   @RequestMapping("/AddPerson")
   public String addPerson(@RequestBody PersonDTO personDTO) {
-
-    //GET DATA FROM PersonDTO
-    String  name = personDTO.name;
-    Integer age  = personDTO.age;
-
-    //RETURN SOMETHING
-    return name + " is " + age + " years old";
-
+    return personDTO.name + " is " + personDTO.age + " years old";
   }
 
 }
